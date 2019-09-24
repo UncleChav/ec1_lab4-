@@ -11,12 +11,11 @@ namespace HondaXpress
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-          //  Session["Fname"] = lblfname.Text; 
+          
         }
 
         void RetrieveDetails()
         {
-          //  Session["Fname"] = lblFname.Text;
         }
     }
 }
