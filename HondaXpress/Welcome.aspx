@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Welcome.aspx.cs" Inherits="HondaXpress.Welcome" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1>Welcome</h1> <label id="lblfname"></label><label id="llblname"></label>
+    
+
+    <h1 style="color :white">Welcome <asp:Label ID="lblFname" runat="server"></asp:Label> </h1>
 </asp:Content>
 

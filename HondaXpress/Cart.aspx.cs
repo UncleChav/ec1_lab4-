@@ -7,9 +7,14 @@ using System.Web.UI.WebControls;
 
 namespace HondaXpress
 {
-    public partial class Homepage : System.Web.UI.Page
+    public partial class Cart : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
+        {
+            BindCartNumber();
+        }
+
+        protected void btnRemFromCart_Click(object sender, EventArgs e)
         {
             BindCartNumber();
         }
@@ -22,6 +27,7 @@ namespace HondaXpress
                 string CookiePID = Request.Cookies["CartPID"].Value.Split('=')[1];
                 string[] ProdArray = CookiePID.Split(',');
                 int ProdCount = ProdArray.Length;
+                ProdCount --;
                 pCount.InnerText = ProdCount.ToString();
             }
             else

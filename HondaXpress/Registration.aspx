@@ -7,6 +7,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
@@ -32,7 +33,14 @@
             margin-top: 13px;
         }
     </style>
+        <script>
+        $(document).ready(function myfunction() {
+            $("#btnCart").click(function myfunction() {
+                window.location.href = "Cart.aspx";
+            })
 
+        });
+    </script>
 </head>
 <body style="background-image: url('Images/bg.jpg'); background-position: 2840px 1160px">
     <form id="form1" runat="server">
@@ -57,6 +65,11 @@
                             <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
                             <li class="nav-item active"><a class="nav-link" href="Registration.aspx">Register</a></li>
+                            <li>
+                                <button id="btnCart" type="button" class="btn btn-primary navbar-btn">
+                                    Cart <span class="badge badge-light" id="pCount" runat="server"></span>
+                                </button>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -65,11 +78,7 @@
 
         </div>
 
-        <div class="col-lg-5" style="color: white">
-            Registered Members:
-            
-            <asp:Label ID="lblCounter" runat="server" />
-        </div>
+        
         <div class="center-page" style="width: 300px; height: 300px; position: absolute; top: -40px; bottom: 0; left: 0; right: 0; margin: auto;">
 
 
@@ -96,8 +105,8 @@
 
             <label class="col-xs-11">DOB</label>
             <div class="col-xs-11">
-                <asp:TextBox ID="txtDob" runat="server" CssClass="form-control" placeholder="DOB"></asp:TextBox>
-                <asp:CustomValidator ID="validDob" runat="server" ErrorMessage="Must be 18 years or older to register." Font-Bold="False" Font-Italic="True" ForeColor="Red"></asp:CustomValidator>
+                <asp:TextBox ID="txtDob" runat="server" CssClass="form-control" placeholder="DOB" Type="date"></asp:TextBox>
+                <asp:RangeValidator ID="valDOB" runat="server" ErrorMessage="Must be 18 years and older to register" ControlToValidate="txtDob" MaximumValue="2001-09-01" MinimumValue="1900-01-01" Font-Italic="True" ForeColor="Red"></asp:RangeValidator>
             </div>
 
             <label class="col-xs-11">Phone Number</label>
@@ -117,6 +126,8 @@
             <div class="col-xs-11">
                 <asp:TextBox ID="txtConPwd" runat="server" CssClass="form-control" placeholder="Confirm Paaword"></asp:TextBox>
                 <asp:CompareValidator ID="validConPwd" runat="server" ControlToCompare="txtPwd" ControlToValidate="txtConPwd" ErrorMessage="Passwords don't match" Font-Bold="False" Font-Italic="True" ForeColor="Red"></asp:CompareValidator>
+                <br />
+                <asp:RequiredFieldValidator ID="reqConPwd" runat="server" ControlToValidate="txtConPwd" ErrorMessage="Please confirm your password" Font-Bold="False" Font-Italic="True" ForeColor="Red"></asp:RequiredFieldValidator>
 
             </div>
 
@@ -143,42 +154,4 @@
 
 
 
-<script type="text/javascript">
-    function ValidateDOB(sender, args) {
-        //Get the date from the TextBox.
-        var dateString = document.getElementById(sender.txtDob).value;
-        var regex = /(((0|1)[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d))$/;
 
-        //Check whether valid dd/MM/yyyy Date Format.
-        if (regex.test(dateString)) {
-            var parts = dateString.split("/");
-            var dtDOB = new Date(parts[1] + "/" + parts[0] + "/" + parts[2]);
-            var dtCurrent = new Date();
-            sender.innerHTML = "Eligibility 18 years ONLY."
-            if (dtCurrent.getFullYear() - dtDOB.getFullYear() < 18) {
-                args.IsValid = false;
-                return;
-            }
-
-            if (dtCurrent.getFullYear() - dtDOB.getFullYear() == 18) {
-
-                //CD: 11/06/2018 and DB: 15/07/2000. Will turned 18 on 15/07/2018. 
-                if (dtCurrent.getMonth() < dtDOB.getMonth()) {
-                    args.IsValid = false;
-                    return;
-                }
-                if (dtCurrent.getMonth() == dtDOB.getMonth()) {
-                    //CD: 11/06/2018 and DB: 15/06/2000. Will turned 18 on 15/06/2018. 
-                    if (dtCurrent.getDate() < dtDOB.getDate()) {
-                        args.IsValid = false;
-                        return;
-                    }
-                }
-            }
-            args.IsValid = true;
-        } else {
-            sender.innerHTML = "Enter date in dd/MM/yyyy format ONLY."
-            args.IsValid = false;
-        }
-    }
-</script>

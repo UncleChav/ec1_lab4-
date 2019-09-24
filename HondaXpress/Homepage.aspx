@@ -7,7 +7,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <title>HondaXpress</title>
@@ -29,6 +29,14 @@
         }
     </style>
 
+    <script>
+        $(document).ready(function myfunction() {
+            $("#btnCart").click(function myfunction() {
+                window.location.href = "Cart.aspx";
+            })
+
+        });
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -53,6 +61,11 @@
                             <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
                             <li class="nav-item"><a class="nav-link" href="Registration.aspx">Register</a></li>
+                            <li>
+                                <button id="btnCart" type="button" class="btn btn-primary navbar-btn">
+                                    Cart <span class="badge badge-light" id="pCount" runat="server"></span>
+                                </button>
+                            </li>
                         </ul>
                     </div>
                 </div>

@@ -110,7 +110,7 @@
             
             <ul>
                <li id = "1">
-                  <img src = "a1.png" class = "items" height = "100" alt = "" />
+                  <img src = "Images/Cars/car2.jpg" class = "items" height = "100" alt = "" />
 
                   <br  />
                   <div><span class = "name">Learn Java: 

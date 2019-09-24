@@ -22,13 +22,13 @@ namespace HondaXpress {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// lblCounter control.
+        /// pCount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCounter;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pCount;
         
         /// <summary>
         /// txtFname control.
@@ -103,13 +103,13 @@ namespace HondaXpress {
         protected global::System.Web.UI.WebControls.TextBox txtDob;
         
         /// <summary>
-        /// validDob control.
+        /// valDOB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator validDob;
+        protected global::System.Web.UI.WebControls.RangeValidator valDOB;
         
         /// <summary>
         /// txtTele control.
@@ -164,6 +164,15 @@ namespace HondaXpress {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CompareValidator validConPwd;
+        
+        /// <summary>
+        /// reqConPwd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqConPwd;
         
         /// <summary>
         /// btnRegister control.
