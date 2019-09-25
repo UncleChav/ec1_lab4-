@@ -18,7 +18,7 @@
                 <p style="font-size: 16px; line-height: 17px; font-family: sans-serif; font-weight: 600; margin-top: 10px">USD $32,999.00</p>
             </div>
             <div style="border-bottom: 1px dashed #696e80; margin-top: 20px">
-                <asp:Button class="addCart" ID="btnAddToCart" OnClick="btnAddToCart_Click" Style="margin-bottom: 20px" CssClass="btn-secondary" runat="server" Text="Add to Cart" />
+                <asp:Button class="addCart" ID="btnAddToCart" prod-id="1001" prod-name="2019 Honda Civic Type R" prod-price="" OnClick="btnAddToCart_Click" Style="margin-bottom: 20px" CssClass="btn-secondary" runat="server" Text="Add to Cart" />
             </div>
             <div>
                 <h5 style="font-weight: bold; font-size: inherit">Description</h5>
@@ -86,42 +86,67 @@
     </div>
 
 
+
+
+
+
+
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
 
+        //    $(".car").draggable({
+        //        cursor: "grabbing",
+        //        helper: "clone",
+        //        opacity: 0.3,
+        //    });
 
-      
-            $(".car").draggable({
-                cursor: "grabbing",
-                helper: "clone",
-                opacity: 0.3,
-            });
-
-        $(".addCart").droppable({drop: function (event, ui) {
+        //$(".addCart").droppable({drop: function (event, ui) {
                
-                 $(function () {
-            debugger;
-            $.ajax({
-                type: 'POST',
-                url: 'Hompepage.aspx.cs/BindCartNumber',
-                data: "{'args':'test'}",
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (msg) {
-                     alert("droppped");
-                },
-                Error:function(msg){
-                    //give alert if ur functuion got some error
-                }
-            });
-        });
-            }
-        });
-            $("#pCount").droppable();
+        //         $(function () {
+        //    debugger;
+        //    $.ajax({
+        //        type: 'POST',
+        //        url: 'Hompepage.aspx.cs/BindCartNumber',
+        //        data: "{'args':'test'}",
+        //        contentType: "application/json; charset=utf-8",
+        //        dataType: "json",
+        //        success: function (msg) {
+        //             alert("droppped");
+        //        },
+        //        Error:function(msg){
+        //            //give alert if ur functuion got some error
+        //        }
+        //    });
+        //});
+        //    }
+        //});
+        //    $("#pCount").droppable();
+
+         $('.my-cart-btn').myCart({
+                    classCartIcon: 'my-cart-icon',
+                    classCartBadge: 'my-cart-badge',
+                    affixCartIcon: true,
+                    checkoutCart: function (products) {
+                        $.each(products, function () {
+                            console.log(this);
+                        });
+                    },
+                    clickOnAddToCart: function ($addTocart) {
+                        goToCartIcon($addTocart);
+                    },
+                    getDiscountPrice: function (products) {
+                        var total = 0;
+                        $.each(products, function () {
+                            total += this.quantity * this.price;
+                        });
+                        return total * 0.5;
+                    }
+                });
        
 
     </script>
+
 </asp:Content>
 
 

@@ -58,8 +58,8 @@
                         <ul class="navbar-nav mr-auto mr-lg-n5 ml-lg-auto mt-lg-0 navbar-right">
                             <li class="nav-item active"><a class="nav-link" href="Homepage.aspx">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="Products.aspx">Products</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+                            <li class="nav-item"><a class="nav-link" href="About.aspx">About Us</a></li>
+                            <li class="nav-item"><a class="nav-link" href="Contact.aspx">Contact Us</a></li>
                             <li class="nav-item"><a class="nav-link" href="Registration.aspx">Register</a></li>
                             <li>
                                 <button id="btnCart" type="button" class="btn btn-primary navbar-btn">

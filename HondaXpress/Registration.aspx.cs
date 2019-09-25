@@ -9,7 +9,7 @@ namespace HondaXpress
 {
     public partial class Registration : System.Web.UI.Page
     {
-        String Fname, Lname, DOB, Email, Tele;
+       
         
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -58,11 +58,11 @@ namespace HondaXpress
                 string CookiePID = Request.Cookies["CartPID"].Value.Split('=')[1];
                 string[] ProdArray = CookiePID.Split(',');
                 int ProdCount = ProdArray.Length;
-                pCount.InnerText = ProdCount.ToString();
+              //  pCount.InnerText = ProdCount.ToString();
             }
             else
             {
-                pCount.InnerText = 0.ToString();
+                //pCount.InnerText = 0.ToString();
 
             }
         }

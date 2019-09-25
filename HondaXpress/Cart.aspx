@@ -26,7 +26,8 @@
 
                 <div class="media-body">
                     <h5 class="mt-0" style="font-size: 15px; line-height: 25px; font-family: sans-serif; font-weight: 600; color: white;">2019 Honda Civic Type-R</h5>
-                    <span style="font-size: 14px; line-height: 17px; font-family: sans-serif; font-weight: 600; color: white;">USD $32,999.00</span>
+                    <span style="font-size: 14px; line-height: 17px; font-family: sans-serif; font-weight: 600; color: white;"><span>USD $</span>32,999.00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+                    <input id="Text1" style="width: 24px; height: 15px; font-size: x-small;" type="text" value="1" />&nbsp;&nbsp;<span>Total:  </span>
                     <p>
                         <asp:Button class="remCart" ID="btnRemFromCart" OnClick="btnRemFromCart_Click" CssClass="btn-warning" runat="server" Text="Remove from Cart" Style="border-radius: 3px; outline: 0; margin-top: 10px; font-size: 13px; min-height: 22px; min-width: 90px; font-weight: 500;" />
 
