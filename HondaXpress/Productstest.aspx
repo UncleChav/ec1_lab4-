@@ -1,326 +1,433 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="HondaXpress.Registration" %>
-
 <!DOCTYPE html>
-
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-    <title>Untitled Document</title>
-    <script async="" src="https://www.google-analytics.com/analytics.js"></script>
-    <script type="text/javascript" src="jquery-1.3.2.js"></script>
-    <script type="text/javascript" src="jquery.livequery.js"></script>
-    <link href="css.css" rel="stylesheet">
-   
-    <script type="text/javascript" src="https://s3.amazonaws.com/exthub/e/2/r/JM_chrome.js?cached=true" data-uid="Ofs3ERTWz2qHxoapQPcdcZB4Cf0NKnYG"></script>
-     <script type="text/javascript">
-
-        $(document).ready(function () {
-
-            var Arrays = new Array();
-
-            $('#wrap li').mousemove(function () {
-
-                var position = $(this).position();
-
-                $('#cart').stop().animate({
-
-                    left: position.left + 'px',
-
-                }, 250, function () {
-
-                });
-            }).mouseout(function () {
-
-            });
-
-            $('#wrap li').click(function () {
-
-                var thisID = $(this).attr('id');
-
-                var itemname = $(this).find('div .name').html();
-                var itemprice = $(this).find('div .price').html();
-
-                if (include(Arrays, thisID)) {
-                    var price = $('#each-' + thisID).children(".shopp-price").find('em').html();
-                    var quantity = $('#each-' + thisID).children(".shopp-quantity").html();
-                    quantity = parseInt(quantity) + parseInt(1);
-
-                    var total = parseInt(itemprice) * parseInt(quantity);
-
-                    $('#each-' + thisID).children(".shopp-price").find('em').html(total);
-                    $('#each-' + thisID).children(".shopp-quantity").html(quantity);
-
-                    var prev_charges = $('.cart-total span').html();
-                    prev_charges = parseInt(prev_charges) - parseInt(price);
-
-                    prev_charges = parseInt(prev_charges) + parseInt(total);
-                    $('.cart-total span').html(prev_charges);
-
-                    $('#total-hidden-charges').val(prev_charges);
-                }
-                else {
-                    Arrays.push(thisID);
-
-                    var prev_charges = $('.cart-total span').html();
-                    prev_charges = parseInt(prev_charges) + parseInt(itemprice);
-
-                    $('.cart-total span').html(prev_charges);
-                    $('#total-hidden-charges').val(prev_charges);
-
-                    $('#left_bar .cart-info').append('<div class="shopp" id="each-' + thisID + '"><div class="label">' + itemname + '</div><div class="shopp-price"> $<em>' + itemprice + '</em></div><span class="shopp-quantity">1</span><img src="remove.png" class="remove" /><br class="all" /></div>');
-
-                    $('#cart').css({ '-webkit-transform': 'rotate(20deg)', '-moz-transform': 'rotate(20deg)' });
-                }
-
-                setTimeout('angle()', 200);
-            });
+    <title>The Generics | Store</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 
 
-            $('.remove').livequery('click', function () {
-
-                var deduct = $(this).parent().children(".shopp-price").find('em').html();
-                var prev_charges = $('.cart-total span').html();
-
-                var thisID = $(this).parent().attr('id').replace('each-', '');
-
-                var pos = getpos(Arrays, thisID);
-                Arrays.splice(pos, 1, "0")
-
-                prev_charges = parseInt(prev_charges) - parseInt(deduct);
-                $('.cart-total span').html(prev_charges);
-                $('#total-hidden-charges').val(prev_charges);
-                $(this).parent().remove();
-
-            });
-
-            $('#Submit').livequery('click', function () {
-
-                var totalCharge = $('#total-hidden-charges').val();
-
-                $('#left_bar').html('Total Charges: $' + totalCharge);
-
-                return false;
-
-            });
-
-        });
-
-        function include(arr, obj) {
-            for (var i = 0; i < arr.length; i++) {
-                if (arr[i] == obj) return true;
-            }
-        }
-        function getpos(arr, obj) {
-            for (var i = 0; i < arr.length; i++) {
-                if (arr[i] == obj) return i;
-            }
-        }
-        function angle() { $('#cart').css({ '-webkit-transform': 'rotate(0deg)', '-moz-transform': 'rotate(0deg)' }); }
-
-    </script>
     <style>
+        @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700');
+        @import url("https://fonts.googleapis.com/css?family=Metal+Mania");
+
+        @font-face {
+            font-family: "Booter - Zero Zero";
+            src: url("Fonts/Booter - Zero Zero.woff") format("woff"), url("Fonts/Booter - Zero Zero.woff2") format("woff2");
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: Raleway;
+            color: #777;
+        }
+
         html, body {
             margin: 0;
             padding: 0;
-            border: 0;
-            outline: 0;
+            min-height: 100%;
+            background-image: url('Images/bg.jpg');
+            background-size: auto;
         }
 
-        #wrap {
-            width: 600px;
-            height: 900px;
-            top: 20px;
-            position: relative;
-            bottom: 0px;
+        .main-header {
+            background-color: rgba(0, 0, 0, .6);
+            background-image: url("Images/Header Background.jpg");
+            background-blend-mode: multiply;
+            background-size: cover;
+            padding-bottom: 30px;
         }
 
-            #wrap ul {
-                margin: 0px;
-                padding: 0px;
-                text-align: center;
-            }
-
-        user agent stylesheet
-        ul {
-            display: block;
-            list-style-type: disc;
-            margin-block-start: 1em;
-            margin-block-end: 1em;
-            margin-inline-start: 0px;
-            margin-inline-end: 0px;
-            padding-inline-start: 40px;
+        .band-name {
+            text-align: center;
+            margin: 0;
+            font-size: 4em;
+            font-family: "Booter - Zero Zero";
+            font-weight: normal;
+            color: white;
         }
 
-        #wrap ul li {
+        .band-name-large {
+            font-size: 8em;
+        }
+
+        .content-section {
+            margin: 1em;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5em;
+        }
+
+        .section-header {
+            font-family: "Metal Mania";
+            font-weight: normal;
+            color: white;
+            text-align: center;
+            font-size: 2.5em;
+        }
+
+        .about-band-image {
+            float: left;
+            height: 200px;
+            width: 200px;
+            margin: 15px;
+            border-radius: 50%;
+        }
+
+
+        .btn {
+            text-align: center;
+            vertical-align: middle;
+            padding: .67em .67em;
             cursor: pointer;
         }
 
-        #wrap ul li {
-            -moz-background-clip: padding;
-            -webkit-background-clip: padding;
-            background-clip: padding-box;
-            border: 10px solid rgba(0,0,0,0.3);
-            -webkit-border-radius: 8px;
-            -moz-border-radius: 8px;
-            border-radius: 8px;
-            /* background: url(bgs.png) repeat-x scroll; */
-            list-style-type: none;
-            height: 150px;
-            width: 160px;
-            margin-left: 13px;
+        .btn-header {
+            margin: .5em 15% 2em 15%;
+            color: white;
+            border: 2px solid #2D9CDB;
+            background-color: rgba(255, 255, 255, .1);
+            border-radius: 0;
+            font-size: 1.5em;
+            font-weight: lighter;
+            padding-left: 2em;
+            padding-right: 2em;
+        }
+
+            .btn-header:hover {
+                background-color: rgba(255, 255, 255, .3);
+            }
+
+        .btn-play {
+            display: block;
+            margin: 0 auto;
+            color: #2D9CDB;
+            font-size: 4em;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            padding: 0;
+            text-align: center;
+        }
+
+        .btn-primary {
+            color: white;
+            background-color: #56CCF2;
+            border: none;
+            border-radius: .3em;
+            font-weight: bold;
+        }
+
+            .btn-primary:hover {
+                background-color: #2D9CDB;
+            }
+
+
+        .shop-item {
+            margin: 30px;
+        }
+
+        .shop-item-title {
+            display: block;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.5em;
+            color: white;
             margin-bottom: 15px;
-            float: left;
-            padding: 15px 0px 0px 0px;
-            font-family: "LubalGraphBdBTBold",Tahoma;
-            font-size: 2em;
-            overflow: hidden;
         }
 
-        user agent stylesheet
-        li {
-            display: list-item;
-            text-align: -webkit-match-parent;
+        .shop-item-image {
+            height: 250px;
+            border-radius: 25px;
         }
 
-        #left_bar {
-            top: 120px;
-            left: 600px;
-            height: 350px;
-            width: 250px;
-            position: fixed;
-            padding: 10px;
+        .shop-item-details {
+            display: flex;
+            align-items: center;
+            padding: 5px;
         }
 
-        user agent stylesheet
-        div {
-            display: block;
+        .shop-item-price {
+            flex-grow: 1;
+            color: white;
         }
 
-        form {
-            display: block;
-            margin-top: 0em;
+        .shop-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
         }
 
-        .shopp, .cart-total {
-            border: solid #ccc 1px;
-            padding: 8px;
-            -webkit-border-radius: 8px;
-            -moz-border-radius: 8px;
-            font-size: 12px;
-            background: url(remove.png) center right no-repeat 5px;
-            border-radius: 8px;
-            font-family: "LubalGraphBdBTBold",Tahoma;
-            margin-bottom: 3px;
-            width: 260px;
+        .cart-header {
+            font-weight: bold;
+            font-size: 1.25em;
+            color: white;
         }
+
+        .cart-column {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid black;
+            margin-right: 1.5em;
+            padding-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        .cart-row {
+            display: flex;
+        }
+
+        .cart-item {
+            width: 45%;
+        }
+
+        .cart-price {
+            width: 20%;
+            font-size: 1.2em;
+            color: white;
+        }
+
+        .cart-quantity {
+            width: 35%;
+        }
+
+        .cart-item-title {
+            color: white;
+            margin-left: .5em;
+            font-size: 1.2em;
+        }
+
+        .cart-item-image {
+            width: 75px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .btn-danger {
+            color: white;
+            background-color: #EB5757;
+            border: none;
+            border-radius: .3em;
+            font-weight: bold;
+        }
+
+            .btn-danger:hover {
+                background-color: #CC4C4C;
+            }
+
+        .cart-quantity-input {
+            height: 34px;
+            width: 50px;
+            border-radius: 5px;
+            border: 1px solid #56CCF2;
+            background-color: #eee;
+            color: #333;
+            padding: 0;
+            text-align: center;
+            font-size: 1.2em;
+            margin-right: 25px;
+        }
+
+        .cart-row:last-child {
+            border-bottom: 1px solid black;
+        }
+
+            .cart-row:last-child .cart-column {
+                border: none;
+            }
 
         .cart-total {
-            background: #E8E8E8;
+            text-align: end;
+            margin-top: 10px;
+            margin-right: 10px;
         }
-        .cart-total b {
-    width: 130px;
-}
-        button {
-    background: none repeat scroll 0 0 #AD7B05;
-    color: #FFFFFF;
-    border: medium none;
-    font-family: "LubalGraphBdBTBold",Tahoma;
-    font-size: 1.1em;
-    margin-right: -14px;
-    padding: 10px;
-    cursor: pointer;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
-}
-user agent stylesheet
-button {
-    -webkit-appearance: button;
-    -webkit-writing-mode: horizontal-tb !important;
-    text-rendering: auto;
-    color: buttontext;
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    display: inline-block;
-    text-align: center;
-    align-items: flex-start;
-    cursor: default;
-    background-color: buttonface;
-    box-sizing: border-box;
-    margin: 0em;
-    font: 400 13.3333px Arial;
-    padding: 1px 6px;
-    border-width: 2px;
-    border-style: outset;
-    border-color: buttonface;
-    border-image: initial;
-}
+
+        .cart-total-title {
+            font-weight: bold;
+            font-size: 1.5em;
+            color: black;
+            margin-right: 20px;
+        }
+
+        .cart-total-price {
+            color: white;
+            font-size: 1.1em;
+        }
+
+        .btn-purchase {
+            display: block;
+            margin: 40px auto 80px auto;
+            font-size: 1.75em;
+        }
     </style>
+
+    <script>
+        if (document.readyState == 'loading') {
+            document.addEventListener('DOMContentLoaded', ready)
+        } else {
+            ready()
+        }
+
+        function ready() {
+            var removeCartItemButtons = document.getElementsByClassName('btn-danger')
+            for (var i = 0; i < removeCartItemButtons.length; i++) {
+                var button = removeCartItemButtons[i]
+                button.addEventListener('click', removeCartItem)
+            }
+
+            var quantityInputs = document.getElementsByClassName('cart-quantity-input')
+            for (var i = 0; i < quantityInputs.length; i++) {
+                var input = quantityInputs[i]
+                input.addEventListener('change', quantityChanged)
+            }
+
+            var addToCartButtons = document.getElementsByClassName('shop-item-button')
+            for (var i = 0; i < addToCartButtons.length; i++) {
+                var button = addToCartButtons[i]
+                button.addEventListener('click', addToCartClicked)
+            }
+
+            document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
+        }
+
+        function purchaseClicked() {
+            alert('Thank you for your purchase')
+            var cartItems = document.getElementsByClassName('cart-items')[0]
+            while (cartItems.hasChildNodes()) {
+                cartItems.removeChild(cartItems.firstChild)
+            }
+            updateCartTotal()
+        }
+
+        function removeCartItem(event) {
+            var buttonClicked = event.target
+            buttonClicked.parentElement.parentElement.remove()
+            updateCartTotal()
+        }
+
+        function quantityChanged(event) {
+            var input = event.target
+            if (isNaN(input.value) || input.value <= 0) {
+                input.value = 1
+            }
+            updateCartTotal()
+        }
+
+        function addToCartClicked(event) {
+            var button = event.target
+            var shopItem = button.parentElement.parentElement
+            var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
+            var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
+            var imageSrc = shopItem.getElementsByClassName('shop-item-image')[0].src
+            addItemToCart(title, price, imageSrc)
+            updateCartTotal()
+        }
+
+        function addItemToCart(title, price, imageSrc) {
+            var cartRow = document.createElement('div')
+            cartRow.classList.add('cart-row')
+            var cartItems = document.getElementsByClassName('cart-items')[0]
+            var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
+            for (var i = 0; i < cartItemNames.length; i++) {
+                if (cartItemNames[i].innerText == title) {
+                    alert('This item is already added to the cart')
+                    return
+                }
+            }
+            var cartRowContents = `
+        <div class="cart-item cart-column">
+            <img class="cart-item-image" src="${imageSrc}" width="100" height="100">
+            <span class="cart-item-title">${title}</span>
+        </div>
+        <span class="cart-price cart-column">${price}</span>
+        <div class="cart-quantity cart-column">
+            <input class="cart-quantity-input" type="number" value="1">
+            <button class="btn btn-danger" type="button">REMOVE</button>
+        </div>`
+            cartRow.innerHTML = cartRowContents
+            cartItems.append(cartRow)
+            cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
+            cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
+        }
+
+        function updateCartTotal() {
+            var cartItemContainer = document.getElementsByClassName('cart-items')[0]
+            var cartRows = cartItemContainer.getElementsByClassName('cart-row')
+            var total = 0
+            for (var i = 0; i < cartRows.length; i++) {
+                var cartRow = cartRows[i]
+                var priceElement = cartRow.getElementsByClassName('cart-price')[0]
+                var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
+                var price = parseFloat(priceElement.innerText.replace('$', ''))
+                var quantity = quantityElement.value
+                total = total + (price * quantity)
+            }
+            total = Math.round(total * 100) / 100
+            document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
+        }
+    </script>
 </head>
 
-<body data-gr-c-s-loaded="true">
+<body>
+    <header class="main-header">
+    </header>
 
-    <div style="float: left">
+    <section class="container content-section">
 
-        <div id="wrap" style="float: left">
-
-            <ul>
-                <li id="1">
-                    <img src="Images/Products/civic.jpg" class="items" height="100" alt="">
-
-                    <div><span class="name">Learn Java: Price</span>: $<span class="price">800</span> </div>
-                </li>
-                <li id="2">
-                    <img src="Images/Products/accord.jpg" class="items" height="100" alt="">
-
-                 
-                    <div><span class="name">Learn HTML </span>: $<span class="price">500 </span></div>
-                </li>
-                <li id="3">
-                    <img src="Images/Products/typeR.jpg" class="items" height="100" alt="">
-
-                  
-                    <div><span class="name">Learn Android </span>: $<span class="price">450</span></div>
-                </li>
-
-               
-
-            </ul>
-
-            <br clear="all">
-        </div>
-
-        <div id="left_bar">
-
-            <form action="#" id="cart_form" name="cart_form">
-
-                <div class="cart-info"></div>
-
-                <div class="cart-total">
-
-                    <b>Total Charges:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> $<span>0</span>
-
-                    <input type="hidden" name="total-hidden-charges" id="total-hidden-charges" value="0">
+        <h2 class="section-header">Vehicles</h2>
+        <div class="shop-items">
+            <div class="row">
+                <div class="col-sm shop-item">
+                    <span class="shop-item-title">2019 Honda Civic Type-R</span>
+                    <img class="shop-item-image rounded float-left" src="Images/Products/typeR.jpg">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$32,999.00</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
                 </div>
-
-                <button type="submit" id="Submit">CheckOut</button>
-
-            </form>
-
+                <div class="col-sm shop-item">
+                    <span class="shop-item-title">201 Honda Civic Touring</span>
+                    <img class="shop-item-image" src="Images/Products/civic.jpg">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$28,999.00</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="col-sm shop-item">
+                    <span class="shop-item-title">Album 3</span>
+                    <img class="shop-item-image" src="Images/Products/accord.jpg">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$30,999.00</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-
-
-    </div>
-
-
-
-
-
+    <section class="container content-section">
+        <h2 class="section-header">CART</h2>
+        <div class="cart-row">
+            <span class="cart-item cart-header cart-column">ITEM</span>
+            <span class="cart-price cart-header cart-column">PRICE</span>
+            <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+        </div>
+        <div class="cart-items">
+        </div>
+        <div class="cart-total">
+            <strong class="cart-total-title">Total</strong>
+            <span class="cart-total-price">$0</span>
+        </div>
+        <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+    </section>
 </body>
 </html>
-
-

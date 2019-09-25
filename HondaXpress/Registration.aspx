@@ -33,14 +33,7 @@
             margin-top: 13px;
         }
     </style>
-        <script>
-        $(document).ready(function myfunction() {
-            $("#btnCart").click(function myfunction() {
-                window.location.href = "Cart.aspx";
-            })
-
-        });
-    </script>
+       
 </head>
 <body style="background-image: url('Images/bg.jpg'); background-position: 2840px 1160px">
     <form id="form1" runat="server">
@@ -65,11 +58,7 @@
                             <li class="nav-item"><a class="nav-link" href="About.aspx">About Us</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
                             <li class="nav-item active"><a class="nav-link" href="Registration.aspx">Register</a></li>
-                            <li>
-                                <button id="btnCart" type="button" class="btn btn-primary navbar-btn">
-                                    Cart <span class="badge badge-light" id="pCount" runat="server"></span>
-                                </button>
-                            </li>
+                           
                         </ul>
                     </div>
                 </div>
@@ -117,14 +106,14 @@
 
             <label class="col-xs-11">Password</label>
             <div class="col-xs-11">
-                <asp:TextBox ID="txtPwd" runat="server" CssClass="form-control" placeholder="Password"></asp:TextBox>
+                <asp:TextBox ID="txtPwd" runat="server" CssClass="form-control" placeholder="Password" type="password"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="reqPwd" runat="server" ControlToValidate="txtPwd" ErrorMessage="Please enter a password" Font-Bold="False" Font-Italic="True" ForeColor="Red"></asp:RequiredFieldValidator>
 
             </div>
 
             <label class="col-xs-11">Confirm Password</label>
             <div class="col-xs-11">
-                <asp:TextBox ID="txtConPwd" runat="server" CssClass="form-control" placeholder="Confirm Paaword"></asp:TextBox>
+                <asp:TextBox ID="txtConPwd" runat="server" CssClass="form-control" placeholder="Confirm Paaword" type="password" ></asp:TextBox>
                 <asp:CompareValidator ID="validConPwd" runat="server" ControlToCompare="txtPwd" ControlToValidate="txtConPwd" ErrorMessage="Passwords don't match" Font-Bold="False" Font-Italic="True" ForeColor="Red"></asp:CompareValidator>
                 <br />
                 <asp:RequiredFieldValidator ID="reqConPwd" runat="server" ControlToValidate="txtConPwd" ErrorMessage="Please confirm your password" Font-Bold="False" Font-Italic="True" ForeColor="Red"></asp:RequiredFieldValidator>

@@ -28,15 +28,6 @@
             margin-top: 13px;
         }
     </style>
-
-    <script>
-        $(document).ready(function myfunction() {
-            $("#btnCart").click(function myfunction() {
-                window.location.href = "Cart.aspx";
-            })
-
-        });
-    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -61,11 +52,7 @@
                             <li class="nav-item"><a class="nav-link" href="About.aspx">About Us</a></li>
                             <li class="nav-item"><a class="nav-link" href="Contact.aspx">Contact Us</a></li>
                             <li class="nav-item"><a class="nav-link" href="Registration.aspx">Register</a></li>
-                            <li>
-                                <button id="btnCart" type="button" class="btn btn-primary navbar-btn">
-                                    Cart <span class="badge badge-light" id="pCount" runat="server"></span>
-                                </button>
-                            </li>
+                            
                         </ul>
                     </div>
                 </div>
