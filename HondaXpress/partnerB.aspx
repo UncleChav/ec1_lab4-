@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="New Webform.aspx.cs" Inherits="HondaXpress.New_Webform" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="partnerB.aspx.cs" Inherits="HondaXpress.New_Webform" %>
 
 <!DOCTYPE html>
 
@@ -11,6 +11,9 @@
         <div>
         </div>
         <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-        new webform created</form>
+        partner B new webform created
+
+        LOOOOL
+    </form>
 </body>
 </html>
