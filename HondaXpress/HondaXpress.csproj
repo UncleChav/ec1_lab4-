@@ -130,6 +130,7 @@
     <Content Include="Images\Products\civic.jpg" />
     <Content Include="Images\Products\typeR.jpg" />
     <Content Include="Images\Staff\me.JPG" />
+    <Content Include="New Webform.aspx" />
     <Content Include="Products.aspx" />
     <Content Include="Productstest.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -243,6 +244,13 @@
     </Compile>
     <Compile Include="Homepage.aspx.designer.cs">
       <DependentUpon>Homepage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="New Webform.aspx.cs">
+      <DependentUpon>New Webform.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="New Webform.aspx.designer.cs">
+      <DependentUpon>New Webform.aspx</DependentUpon>
     </Compile>
     <Compile Include="Products.aspx.cs">
       <DependentUpon>Products.aspx</DependentUpon>
