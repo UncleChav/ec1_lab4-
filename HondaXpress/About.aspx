@@ -14,18 +14,6 @@
     </div>
   </div>
 
-      <div class="col-md-4" style="left: 282px; top: -392px; margin-top: 0px">
-    <div class="thumbnail" style="margin-top: 0px">
-      <a href="/w3images/lights.jpg">
-        <img src="Images/Staff/me.JPG" alt="Lights" height="200" width="200">
-        <div class="caption">
-          <p>Name: Chavoy Davis</p>
-          <p>Role: Owner</p>
-          <p>Age: 22</p>
-        </div>
-      </a>
-    </div>
-  </div>
-
+     
 
 </asp:Content>

@@ -37,6 +37,16 @@
             padding-left: 15px;
             padding-right: 15px;
         }
+        .footer-pos {
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 600px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
     </style>
     
 </head>
@@ -62,7 +72,7 @@
                             <li class="nav-item"><a class="nav-link" href="Homepage.aspx">Home</a></li>
                             <li class="nav-item active"><a class="nav-link" href="Products.aspx">Products</a></li>
                             <li class="nav-item"><a class="nav-link" href="About.aspx">About Us</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+                            <li class="nav-item"><a class="nav-link" href=Contact">Contact Us</a></li>
                             <li class="nav-item"><a class="nav-link" href="Registration.aspx">Register</a></li>                          
                         </ul>
                     </div>
@@ -76,7 +86,7 @@
 
 
     </form>
-    <footer class="page-footer font-small blue">
+    <footer class="page-footer font-small blue footer-pos">
 
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3">
