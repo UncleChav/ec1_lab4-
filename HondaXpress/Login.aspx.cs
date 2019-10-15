@@ -44,11 +44,16 @@ namespace HondaXpress
 
                 if (userManager.IsInRole(userManager.FindByName(userIdentity.GetUserName().ToString()).Id, "Admin"))
                 {
-                    Response.Redirect("~/Homepage.aspx");
+                   
+                    Response.Redirect("~/Roles/Admin.aspx");
+                    Response.Write(@"<script langauge='text/javascript'>alert('Welcome " + userIdentity.GetUserName().ToString() + "..');</script>");
+
                 }
                 else if(userManager.IsInRole(userManager.FindByName(userIdentity.GetUserName().ToString()).Id, "Customer"))
                 {
-                    Response.Redirect("~/Homepage.aspx");
+                    Response.Redirect("~/Roles/Customer.aspx");
+                    Response.Write(@"<script langauge='text/javascript'>alert('Welcome " + userIdentity.GetUserName().ToString()+"..');</script>");
+
 
                 }
             }
