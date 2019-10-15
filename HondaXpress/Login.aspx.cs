@@ -41,11 +41,22 @@ namespace HondaXpress
                 var userIdentity = userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
 
                 authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = false }, userIdentity);
-                Response.Redirect("~/Homepage.aspx");
+
+                if (userManager.IsInRole(userManager.FindByName(userIdentity.GetUserName().ToString()).Id, "Admin"))
+                {
+                    Response.Redirect("~/Homepage.aspx");
+                }
+                else if(userManager.IsInRole(userManager.FindByName(userIdentity.GetUserName().ToString()).Id, "Customer"))
+                {
+                    Response.Redirect("~/Homepage.aspx");
+
+                }
             }
             else
             {
-                StatusText.Text = "Invalid email or password.";
+                Response.Write(@"<script langauge='text/javascript'>alert('Invalid email or password..');</script>");
+
+                StatusText.Text = "";
                 LoginStatus.Visible = true;
             }
         }

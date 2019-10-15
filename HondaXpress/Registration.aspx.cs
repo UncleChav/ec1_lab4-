@@ -40,10 +40,22 @@ namespace HondaXpress
                 IdRoleResult = roleMgr.Create(new IdentityRole { Name = "Customer" });
             }
 
-            if (!manager.IsInRole(manager.FindByName("Chavoy").Id, "Admin"))
+
+            if (!manager.IsInRole(manager.FindByName(txtFname.Text).Id, "Customer") || !txtFname.Text.Equals("Chavoy"))
+            {
+
+                IdUserResult = manager.AddToRole(manager.FindByName(txtFname.Text).Id, "Customer");
+
+            }
+            else if (!manager.IsInRole(manager.FindByName("Chavoy").Id, "Admin"))
             {
                 IdUserResult = manager.AddToRole(manager.FindByName("Chavoy").Id, "Admin");
+                if (!txtFname.Text.Equals("Chavoy"))
+                {
+                    IdUserResult = manager.AddToRole(manager.FindByName(txtFname.Text).Id, "Customer");
+                }
             }
+        
 
             if (result.Succeeded)
             {
@@ -56,7 +68,7 @@ namespace HondaXpress
             {
                 StatusMessage.Text = result.Errors.FirstOrDefault();
             }
-          
+
 
 
         }
