@@ -33,7 +33,7 @@
             margin-top: 13px;
         }
     </style>
-       
+
 </head>
 <body style="background-image: url('Images/bg.jpg'); background-position: 2840px 1160px">
     <form id="form1" runat="server">
@@ -58,7 +58,7 @@
                             <li class="nav-item"><a class="nav-link" href="About.aspx">About Us</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
                             <li class="nav-item active"><a class="nav-link" href="Registration.aspx">Register</a></li>
-                           
+
                         </ul>
                     </div>
                 </div>
@@ -67,17 +67,18 @@
 
         </div>
 
-        
+
         <div class="center-page" style="width: 300px; height: 300px; position: absolute; top: -40px; bottom: 0; left: 0; right: 0; margin: auto;">
 
-
+            <p style="color: #FFFFFF">
+                <asp:Literal runat="server" ID="StatusMessage" />
+            </p>
 
             <label class="col-xs-11">First Name</label>
             <div class="col-xs-11">
                 <asp:TextBox ID="txtFname" runat="server" CssClass="form-control" placeholder="First Name"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="reqFname" runat="server" ControlToValidate="txtFname" ErrorMessage="Please Enter Your First Name" Font-Bold="False" Font-Italic="True" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
-
             <label class="col-xs-11">Last Name</label>
             <div class="col-xs-11">
                 <asp:TextBox ID="txtLname" runat="server" CssClass="form-control" placeholder="Last Name"></asp:TextBox>
@@ -91,6 +92,7 @@
                 <br />
                 <asp:RegularExpressionValidator ID="validEmail" runat="server" ControlToValidate="txtEmail" ErrorMessage="Email not in a valid format" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Font-Bold="False" Font-Italic="True" ForeColor="Red"></asp:RegularExpressionValidator>
             </div>
+
 
             <label class="col-xs-11">DOB</label>
             <div class="col-xs-11">
@@ -106,14 +108,21 @@
 
             <label class="col-xs-11">Password</label>
             <div class="col-xs-11">
-                <asp:TextBox ID="txtPwd" runat="server" CssClass="form-control" placeholder="Password" type="password"></asp:TextBox>
+                <asp:TextBox ID="txtPwd" runat="server" CssClass="form-control" placeholder="Password" type="password" title="    
+    The string must be 8 characters or longer
+    The string must contain at least 1 upper alphabetical character [A-Z]
+    The string must contain at least 1 lowercase alphabetical character [a-z]
+    The string must contain at least 1 numeric character
+    The string must contain at least one special character"></asp:TextBox>
+                <%--<asp:RegularExpressionValidator ID="strongPwd" runat="server" ErrorMessage="Password Not Strong" ValidationExpression="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})" ControlToValidate="txtPwd" ForeColor="Red"></asp:RegularExpressionValidator>--%>
+                <br />
                 <asp:RequiredFieldValidator ID="reqPwd" runat="server" ControlToValidate="txtPwd" ErrorMessage="Please enter a password" Font-Bold="False" Font-Italic="True" ForeColor="Red"></asp:RequiredFieldValidator>
 
             </div>
 
             <label class="col-xs-11">Confirm Password</label>
             <div class="col-xs-11">
-                <asp:TextBox ID="txtConPwd" runat="server" CssClass="form-control" placeholder="Confirm Paaword" type="password" ></asp:TextBox>
+                <asp:TextBox ID="txtConPwd" runat="server" CssClass="form-control" placeholder="Confirm Paaword" type="password"></asp:TextBox>
                 <asp:CompareValidator ID="validConPwd" runat="server" ControlToCompare="txtPwd" ControlToValidate="txtConPwd" ErrorMessage="Passwords don't match" Font-Bold="False" Font-Italic="True" ForeColor="Red"></asp:CompareValidator>
                 <br />
                 <asp:RequiredFieldValidator ID="reqConPwd" runat="server" ControlToValidate="txtConPwd" ErrorMessage="Please confirm your password" Font-Bold="False" Font-Italic="True" ForeColor="Red"></asp:RequiredFieldValidator>

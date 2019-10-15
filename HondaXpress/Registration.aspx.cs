@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+
 
 namespace HondaXpress
 {
@@ -13,8 +13,7 @@ namespace HondaXpress
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-
+        
 
         }
 
@@ -41,15 +40,26 @@ namespace HondaXpress
 
         protected void btnIncrement_Click(object sender, EventArgs e)
         {
-            //StoreUserDetails();
-            Session["user"] = txtFname.Text + " " + txtLname;
-            //Session["Lname"] = Lname;
-            Response.Redirect("Welcome.aspx");
-           
+            // Default UserStore constructor uses the default connection string named: DefaultConnection
+            var userStore = new UserStore<IdentityUser>();
+            var manager = new UserManager<IdentityUser>(userStore);
+
+            var user = new IdentityUser() { UserName = txtFname.Text , Email = txtEmail.Text, PhoneNumber = txtTele.Text, PasswordHash = txtPwd.Text };
+            IdentityResult result = manager.Create(user, txtPwd.Text);
+
+            if (result.Succeeded)
+            {
+                StatusMessage.Text = string.Format("User {0} was created successfully!", user.UserName);
+            }
+            else
+            {
+                StatusMessage.Text = result.Errors.FirstOrDefault();
+            }
+
 
         }
 
-       
-       
+
+
     }
 }
