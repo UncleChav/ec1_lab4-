@@ -51,7 +51,8 @@
                             <li class="nav-item"><a class="nav-link" href="Products.aspx">Products</a></li>
                             <li class="nav-item"><a class="nav-link" href="About.aspx">About Us</a></li>
                             <li class="nav-item"><a class="nav-link" href="Contact.aspx">Contact Us</a></li>
-                            <li class="nav-item"><a class="nav-link" href="Registration.aspx">Register</a></li>
+                            <li class="nav-item"><a class="nav-link" href="Registration.aspx">Sign Up</a></li>
+                            <li class="nav-item"><a class="nav-link" href="Login.aspx">Sign In</a></li>
                             
                         </ul>
                     </div>

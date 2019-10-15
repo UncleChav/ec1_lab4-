@@ -56,8 +56,9 @@
                             <li class="nav-item"><a class="nav-link" href="Homepage.aspx">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="Products.aspx">Products</a></li>
                             <li class="nav-item"><a class="nav-link" href="About.aspx">About Us</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
-                            <li class="nav-item active"><a class="nav-link" href="Registration.aspx">Register</a></li>
+                            <li class="nav-item"><a class="nav-link" href="Contact.aspx">Contact Us</a></li>
+                            <li class="nav-item active"><a class="nav-link" href="Registration.aspx">Sign Up</a></li>
+                            <li class="nav-item"><a class="nav-link" href="Login.aspx">Sign In</a></li>
 
                         </ul>
                     </div>
@@ -76,7 +77,7 @@
 
             <label class="col-xs-11">First Name</label>
             <div class="col-xs-11">
-                <asp:TextBox ID="txtFname" runat="server" CssClass="form-control" placeholder="First Name"></asp:TextBox>
+                <asp:TextBox ID="txtFname" runat="server" CssClass="form-control" placeholder="First Name" title="This will be your Username to login"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="reqFname" runat="server" ControlToValidate="txtFname" ErrorMessage="Please Enter Your First Name" Font-Bold="False" Font-Italic="True" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
             <label class="col-xs-11">Last Name</label>
