@@ -30,7 +30,11 @@ namespace HondaXpress
 
             var userStore = new UserStore<IdentityUser>();
             var manager = new UserManager<IdentityUser>(userStore);
-            var user = new IdentityUser() { UserName = txtFname.Text };
+
+            char firstLetter = txtLname.Text.ToCharArray().ElementAt(0);
+            var username = txtFname.Text + firstLetter ;
+
+            var user = new IdentityUser() { UserName = txtFname.Text, Email = txtEmail.Text, PhoneNumber = txtTele.Text };
 
             IdentityResult result = manager.Create(user, txtPwd.Text);
 
@@ -41,7 +45,7 @@ namespace HondaXpress
             }
 
 
-            if (!manager.IsInRole(manager.FindByName(txtFname.Text).Id, "Customer") || !txtFname.Text.Equals("Chavoy"))
+            if (!manager.IsInRole(manager.FindByName(username).Id, "Customer") || !txtFname.Text.Equals("Chavoy"))
             {
 
                 IdUserResult = manager.AddToRole(manager.FindByName(txtFname.Text).Id, "Customer");
