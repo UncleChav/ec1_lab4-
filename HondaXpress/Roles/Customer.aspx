@@ -65,10 +65,10 @@
                 </div>
             </nav>
 
-            <div>
+            <div style="padding-top:50px">
                 <div>
-                    <div>
-                        <img src="" />
+                    <div style="max-width:280px; max-height:320px" class="thumbnail">
+                        <img src="../Images/Products/6/2017 Honda Civic6.jpeg" />
                     </div>
                 </div>
             </div>
