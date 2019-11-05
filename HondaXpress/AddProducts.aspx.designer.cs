@@ -10,7 +10,7 @@
 namespace HondaXpress {
     
     
-    public partial class AddProducts {
+    public partial class AddProducts1 {
         
         /// <summary>
         /// txtProdName control.

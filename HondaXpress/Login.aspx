@@ -5,9 +5,7 @@
           <h4 style="font-size: medium">Log In</h4>
          <hr />
          <asp:PlaceHolder runat="server" ID="LoginStatus" Visible="false">
-            <pW>
                <asp:Literal runat="server" ID="StatusText" />
-            </pW>
          </asp:PlaceHolder>
           
            <label class="col-xs-11">First Name</label>
@@ -29,6 +27,13 @@
                 <asp:RequiredFieldValidator ID="reqPwd" runat="server" ControlToValidate="txtPwd" ErrorMessage="Please enter a password" Font-Bold="False" Font-Italic="True" ForeColor="Red"></asp:RequiredFieldValidator>
 
             </div>
+          <div class="form-group">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-6">
+                        <asp:CheckBox ID="CheckBox1" runat="server" />
+                        <asp:Label ID="Label3" runat="server" CssClass="control-label" Text="Remember me ?"></asp:Label>
+                    </div>
+                </div>
 
            <div class="col-xs-11">
                 <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="btn btn-success" OnClick="btnLogin_Click" />

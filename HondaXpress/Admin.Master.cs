@@ -13,7 +13,11 @@ namespace HondaXpress
         {
 
         }
-
+        protected void BtAdminLogout_Click(object sender, EventArgs e)
+        {
+            Session["USERNAME"] = null;
+            Response.Redirect("~/Homepage.aspx");
+        }
 
 
     }

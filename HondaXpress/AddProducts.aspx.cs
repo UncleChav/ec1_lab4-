@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 
 namespace HondaXpress
 {
-    public partial class AddProducts : System.Web.UI.Page
+    public partial class AddProducts1 : System.Web.UI.Page
     {
         String CS = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)

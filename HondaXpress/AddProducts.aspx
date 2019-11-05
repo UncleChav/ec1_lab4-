@@ -1,8 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="AddProducts.aspx.cs" Inherits="HondaXpress.AddProducts" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="AddProducts.aspx.cs" Inherits="HondaXpress.AddProducts1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-    <div class="container">
+     <div class="container">
         <div class="form-horizontal">
             <h2>Add Products</h2>
             <hr />
@@ -52,7 +50,4 @@
             </div>
         </div>
     </div>
-
-
-
 </asp:Content>

@@ -45,7 +45,7 @@ namespace HondaXpress
             }
 
 
-            if (!manager.IsInRole(manager.FindByName(username).Id, "Customer") || !txtFname.Text.Equals("Chavoy"))
+            if (!manager.IsInRole(manager.FindByName(txtFname.Text).Id, "Customer") || !txtFname.Text.Equals("Chavoy"))
             {
 
                 IdUserResult = manager.AddToRole(manager.FindByName(txtFname.Text).Id, "Customer");

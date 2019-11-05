@@ -20,7 +20,7 @@ namespace HondaXpress
                 {
                     txtFname.Text = Request.Cookies["UNAME"].Value;
                     txtPwd.Attributes["value"] = Request.Cookies["PWD"].Value;
-                    //CheckBox1.Checked = true;
+                    CheckBox1.Checked = true;
                 }
                 if (User.Identity.IsAuthenticated)
                 {
@@ -41,6 +41,20 @@ namespace HondaXpress
             var userManager = new UserManager<IdentityUser>(userStore);
             var user = userManager.Find(txtFname.Text, txtPwd.Text);
 
+            if (CheckBox1.Checked)
+            {
+                Response.Cookies["UNAME"].Value = txtFname.Text;
+                Response.Cookies["PWD"].Value = txtPwd.Text;
+
+                Response.Cookies["UNAME"].Expires = DateTime.Now.AddDays(15);
+                Response.Cookies["PWD"].Expires = DateTime.Now.AddDays(15);
+            }
+            else
+            {
+                Response.Cookies["UNAME"].Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies["PWD"].Expires = DateTime.Now.AddDays(-1);
+            }
+
             if (user != null)
             {
                 var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
@@ -50,14 +64,14 @@ namespace HondaXpress
 
                 if (userManager.IsInRole(userManager.FindByName(userIdentity.GetUserName().ToString()).Id, "Admin"))
                 {
-                   
-                    Response.Redirect("~/Roles/Admin.aspx");
+
+                    Response.Redirect("~/AdminHome.aspx");
                     Response.Write(@"<script langauge='text/javascript'>alert('Welcome " + userIdentity.GetUserName().ToString() + "..');</script>");
 
                 }
                 else if(userManager.IsInRole(userManager.FindByName(userIdentity.GetUserName().ToString()).Id, "Customer"))
                 {
-                    Response.Redirect("~/Roles/Customer.aspx");
+                    Response.Redirect("~/UserHome.aspx");
                     Response.Write(@"<script langauge='text/javascript'>alert('Welcome " + userIdentity.GetUserName().ToString()+"..');</script>");
 
 

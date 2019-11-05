@@ -28,6 +28,7 @@
             margin-top: 13px;
         }
     </style>
+       
 </head>
 <body>
     <form id="form1" runat="server">
@@ -51,8 +52,16 @@
                             <li class="nav-item"><a class="nav-link" href="Products.aspx">Products</a></li>
                             <li class="nav-item"><a class="nav-link" href="About.aspx">About Us</a></li>
                             <li class="nav-item"><a class="nav-link" href="Contact.aspx">Contact Us</a></li>
-                            <li class="nav-item"><a class="nav-link" href="Registration.aspx">Sign Up</a></li>
-                            <li class="nav-item"><a class="nav-link" href="Login.aspx">Sign In</a></li>
+                            <li>
+                                <button id="btnCart" class="btn btn-primary navbar-btn" type="button">
+                                    Cart <span class="badge" id="pCount" runat="server"></span>
+                                </button>
+                            </li>
+                            <li id="btnSignup" runat="server"><a href="Registration.aspx">Sign Up</a></li>
+                            <li id="btnSignin" runat="server"><a href="Login.aspx">Sign In</a></li>
+                            <li>
+                                <asp:Button ID="btnSignOut" runat="server" Class="btn btn-default navbar-btn" Text="Sign out" OnClick="btnSignOut_Click" />
+                            </li>
                             
                         </ul>
                     </div>
@@ -123,3 +132,10 @@
 
 </body>
 </html>
+  <script>
+        $(document).ready(function myfunction() {
+            $("#btnCart").click(function myfunction() {
+                window.location.href = "/Cart.aspx";
+            });
+        });
+    </script>
