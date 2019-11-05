@@ -16,6 +16,12 @@ namespace HondaXpress
         {
             if (!IsPostBack)
             {
+                if (Request.Cookies["UNAME"] != null && Request.Cookies["PWD"] != null)
+                {
+                    txtFname.Text = Request.Cookies["UNAME"].Value;
+                    txtPwd.Attributes["value"] = Request.Cookies["PWD"].Value;
+                    //CheckBox1.Checked = true;
+                }
                 if (User.Identity.IsAuthenticated)
                 {
                     StatusText.Text = string.Format("Hello {0}!!", User.Identity.GetUserName());

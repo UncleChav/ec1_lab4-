@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -7,39 +10,37 @@ using System.Web.UI.WebControls;
 
 namespace HondaXpress
 {
-    public partial class Product : System.Web.UI.Page
+    public partial class ProductsView : System.Web.UI.Page
     {
+        public static String CS = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-          
-
-        }
-
-        protected void btnAddToCart_Click(object sender, EventArgs e)
-        {
-            Int32 PID = Convert.ToInt32(Request.QueryString["PID"]);
-
-            if(Request.Cookies["CartPID"] != null)
+            if (!IsPostBack)
             {
-                string CookiePID = Request.Cookies["CartPID"].Value.Split('=')[1];
-                CookiePID = CookiePID + "," + PID;
-
-                HttpCookie CartProd = new HttpCookie("CartPID");
-                CartProd.Values["CartPID"] = CookiePID;
-                CartProd.Expires = DateTime.Now.AddDays(30);
-                Response.Cookies.Add(CartProd);
-            } 
-            else
-            {
-                HttpCookie CartProd = new HttpCookie("CartPID");
-                CartProd.Values["CartPID"] = PID.ToString();
-                CartProd.Expires = DateTime.Now.AddDays(30);
-                Response.Cookies.Add(CartProd);
+                BindProductRepeater();
             }
-            Response.Redirect("Products.aspx");
-
         }
 
-        
+        private void BindProductRepeater()
+        {
+            using (SqlConnection con = new SqlConnection(CS))
+            {
+                using (SqlCommand cmd = new SqlCommand("procedBindAllProducts", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dtProducts = new DataTable();
+                        sda.Fill(dtProducts);
+                        rptrProducts.DataSource = dtProducts;
+                        rptrProducts.DataBind();
+                    }
+                }
+            }
+        }
+
+
+
+       
     }
 }

@@ -32,9 +32,9 @@
 
            <div class="col-xs-11">
                 <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="btn btn-success" OnClick="btnLogin_Click" />
-               
+                <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/Registration.aspx">Sign Up</asp:LinkButton>
             </div>
-          <%--<asp:LinkButton ID="LinkButton1" runat="server" OnClientClick="Registration.aspx">Sign Up</asp:LinkButton>--%>
+          <%--<asp:LinkButton ID="LinkButton1" runat="server" OnClientClick="">Sign Up</asp:LinkButton>--%>
 
 
 

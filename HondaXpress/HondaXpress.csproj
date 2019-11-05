@@ -153,14 +153,33 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Customcss.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\bg.jpg" />
+    <Content Include="Images\Cars\car1.jpg" />
+    <Content Include="Images\Cars\car2.jpg" />
+    <Content Include="Images\Cars\car3.jpg" />
+    <Content Include="Images\Cars\car4.jpg" />
+    <Content Include="Images\Cars\car5.jpg" />
+    <Content Include="Images\Cars\car6.jpg" />
+    <Content Include="Images\Cars\car7.jpeg" />
+    <Content Include="Images\logo.jpg" />
+    <Content Include="Images\Products\10\2009 Honda Civic10.jpg" />
+    <Content Include="Images\Products\11\2017 Honda Civic11.jpeg" />
+    <Content Include="Images\Products\9\2016 Honda Civic9.jpg" />
+    <Content Include="Images\Staff\me.JPG" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\jquery-3.2.1.min.js" />
+    <Content Include="js\npm.js" />
     <Content Include="Login.aspx" />
     <Content Include="partnerB.aspx" />
-    <Content Include="Products.aspx" />
+    <Content Include="Products1.aspx" />
     <Content Include="products.css" />
     <Content Include="products.js" />
-    <Content Include="Productstest.aspx" />
+    <Content Include="Products.aspx" />
+    <Content Include="ProductView.aspx" />
     <Content Include="Roles\Admin.aspx" />
     <Content Include="Roles\Customer.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -296,6 +315,13 @@
     <Compile Include="partnerB.aspx.designer.cs">
       <DependentUpon>partnerB.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Products1.aspx.cs">
+      <DependentUpon>Products1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Products1.aspx.designer.cs">
+      <DependentUpon>Products1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Products.aspx.cs">
       <DependentUpon>Products.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -303,12 +329,12 @@
     <Compile Include="Products.aspx.designer.cs">
       <DependentUpon>Products.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Productstest.aspx.cs">
-      <DependentUpon>Productstest.aspx</DependentUpon>
+    <Compile Include="ProductView.aspx.cs">
+      <DependentUpon>ProductView.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Productstest.aspx.designer.cs">
-      <DependentUpon>Productstest.aspx</DependentUpon>
+    <Compile Include="ProductView.aspx.designer.cs">
+      <DependentUpon>ProductView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration.aspx.cs">
@@ -347,6 +373,13 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="User.Master.cs">
+      <DependentUpon>User.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User.Master.designer.cs">
+      <DependentUpon>User.Master</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -367,6 +400,7 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="User.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
