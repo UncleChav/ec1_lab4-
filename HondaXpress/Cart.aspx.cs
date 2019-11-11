@@ -109,7 +109,7 @@ namespace HondaXpress
 
             if (Session["USERNAME"] != null)
             {
-                Response.Redirect("~/Payment.aspx");
+                Response.Redirect("~/Order.aspx");
             }
             else
             {

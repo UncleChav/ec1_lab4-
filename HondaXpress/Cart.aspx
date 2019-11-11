@@ -45,7 +45,7 @@
                     <span class="pull-right" id="spanTotal" runat="server"></span>
                 </div>
                 <div>
-                    <asp:Button ID="btnBuyNow" OnClick="btnBuyNow_Click"  CssClass="buyNowBtn" runat="server" Text="BUY NOW" />
+                    <asp:Button ID="btnBuyNow" OnClick="btnBuyNow_Click" CssClass="buyNowBtn" runat="server" Text="BUY NOW" />
                 </div>
             </div>
         </div>
