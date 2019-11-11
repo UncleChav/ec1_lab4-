@@ -179,6 +179,7 @@
     <Content Include="js\npm.js" />
     <Content Include="Login2.aspx" />
     <Content Include="Order.aspx" />
+    <Content Include="OrderHistory.aspx" />
     <Content Include="partnerB.aspx" />
     <Content Include="Products1.aspx" />
     <Content Include="products.css" />
@@ -342,6 +343,13 @@
     </Compile>
     <Compile Include="Order.aspx.designer.cs">
       <DependentUpon>Order.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrderHistory.aspx.cs">
+      <DependentUpon>OrderHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrderHistory.aspx.designer.cs">
+      <DependentUpon>OrderHistory.aspx</DependentUpon>
     </Compile>
     <Compile Include="partnerB.aspx.cs">
       <DependentUpon>partnerB.aspx</DependentUpon>
