@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace HondaXpress
 {
-    public partial class SignIn : System.Web.UI.Page
+    public partial class Login : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -64,26 +64,16 @@ namespace HondaXpress
 
                 if (userManager.IsInRole(userManager.FindByName(userIdentity.GetUserName().ToString()).Id, "Admin"))
                 {
-                    Session["USERNAME"] = txtFname.Text;
+
                     Response.Redirect("~/AdminHome.aspx");
                     Response.Write(@"<script langauge='text/javascript'>alert('Welcome " + userIdentity.GetUserName().ToString() + "..');</script>");
 
                 }
-                else if (userManager.IsInRole(userManager.FindByName(userIdentity.GetUserName().ToString()).Id, "Customer"))
+                else if(userManager.IsInRole(userManager.FindByName(userIdentity.GetUserName().ToString()).Id, "Customer"))
                 {
-                    Session["USERNAME"] = txtFname.Text;
-                    if (Request.QueryString["rurl"] != null)
-                    {
-                        if (Request.QueryString["rurl"] == "cart")
-                        {
-                            Response.Redirect("~/Cart.aspx");
-                        }
-                    }
-                    else
-                    {
-                        Response.Redirect("~/UserHome.aspx");
-                        Response.Write(@"<script langauge='text/javascript'>alert('Welcome " + userIdentity.GetUserName().ToString() + "..');</script>");
-                    }
+                    Response.Redirect("~/UserHome.aspx");
+                    Response.Write(@"<script langauge='text/javascript'>alert('Welcome " + userIdentity.GetUserName().ToString()+"..');</script>");
+
 
                 }
             }

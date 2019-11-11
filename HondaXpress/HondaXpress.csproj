@@ -175,7 +175,8 @@
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\jquery-3.2.1.min.js" />
     <Content Include="js\npm.js" />
-    <Content Include="Login.aspx" />
+    <Content Include="Login2.aspx" />
+    <Content Include="Order.aspx" />
     <Content Include="partnerB.aspx" />
     <Content Include="Products1.aspx" />
     <Content Include="products.css" />
@@ -209,6 +210,7 @@
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="Admin.Master" />
+    <Content Include="Login.aspx" />
     <Content Include="UserHome.aspx" />
     <Content Include="Welcome.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -318,12 +320,19 @@
     <Compile Include="Homepage.aspx.designer.cs">
       <DependentUpon>Homepage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
+    <Compile Include="Login2.aspx.cs">
+      <DependentUpon>Login2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
+    <Compile Include="Login2.aspx.designer.cs">
+      <DependentUpon>Login2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Order.aspx.cs">
+      <DependentUpon>Order.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Order.aspx.designer.cs">
+      <DependentUpon>Order.aspx</DependentUpon>
     </Compile>
     <Compile Include="partnerB.aspx.cs">
       <DependentUpon>partnerB.aspx</DependentUpon>
@@ -374,6 +383,13 @@
     </Compile>
     <Compile Include="Roles\Customer.aspx.designer.cs">
       <DependentUpon>Customer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

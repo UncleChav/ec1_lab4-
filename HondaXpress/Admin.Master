@@ -95,7 +95,7 @@
                             <li class="nav-item"><a class="nav-link" href="About.aspx">About Us</a></li>
                             <li class="nav-item"><a class="nav-link" href="Contact.aspx">Contact Us</a></li>
                             ]<li class="nav-item"><a class="nav-link" href="#">Manage Users</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../AddProducts.aspx">Manage Products</a></li>
+                            <li class="nav-item"><a class="nav-link" href="AddProducts.aspx">Manage Products</a></li>
                             <li>
                                 <asp:Button ID="BtAdminLogout" runat="server" Class="btn btn-default navbar-btn" Text="Logout" OnClick="BtAdminLogout_Click" />
                             </li>

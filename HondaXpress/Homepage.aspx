@@ -28,6 +28,13 @@
             margin-top: 13px;
         }
     </style>
+      <script>
+        $(document).ready(function myfunction() {
+            $("#btnCart").click(function myfunction() {
+                window.location.href = "/Cart.aspx";
+            });
+        });
+    </script>
        
 </head>
 <body>
@@ -57,8 +64,8 @@
                                     Cart <span class="badge" id="pCount" runat="server"></span>
                                 </button>
                             </li>
-                            <li id="btnSignup" runat="server"><a href="Registration.aspx">Sign Up</a></li>
-                            <li id="btnSignin" runat="server"><a href="Login.aspx">Sign In</a></li>
+                            <li class="nav-item" id="btnSignup" runat="server"><a class="nav-link" href="Registration.aspx">Sign Up</a></li>
+                            <li class="nav-item" id="btnSignin" runat="server"><a class="nav-link" href="Login.aspx">Sign In</a></li>
                             <li>
                                 <asp:Button ID="btnSignOut" runat="server" Class="btn btn-default navbar-btn" Text="Sign out" OnClick="btnSignOut_Click" />
                             </li>
@@ -132,10 +139,3 @@
 
 </body>
 </html>
-  <script>
-        $(document).ready(function myfunction() {
-            $("#btnCart").click(function myfunction() {
-                window.location.href = "/Cart.aspx";
-            });
-        });
-    </script>
