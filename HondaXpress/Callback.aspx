@@ -13,7 +13,7 @@
             <div class="jumbotron">
                 <h1 runat="server" id="h1Message"></h1>
                 <p>Click here to go to home</p>
-                <p><a class="btn btn-primary btn-lg" href="Homepage.aspx" role="button">Home</a></p>
+                <p><a class="btn btn-primary btn-lg" href="UserHome.aspx" role="button">Home</a></p>
             </div>
         </div>
     </form>
